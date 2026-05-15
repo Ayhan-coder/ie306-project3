@@ -1,0 +1,19 @@
+{
+  "classification": "steady-state",
+  "warmup_welch": 8820,
+  "warmup_mser": 3329,
+  "warmup_chosen": 10000,
+  "task3_rep_estimate": 14.531148920207102,
+  "task3_rep_halfwidth": 0.5637842176279444,
+  "task3_R": 40,
+  "task3_bm_estimate": 15.86561316085166,
+  "task3_bm_halfwidth": 2.480065073858993,
+  "task3_B": 500,
+  "task3_K": 17,
+  "task3_lag1": 0.11795222444446764,
+  "task4_paired_diff": 10.405778439298974,
+  "task4_paired_halfwidth": 0.44340615806214956,
+  "task4_vrf": 1.7518852301506223,
+  "task5_invariant_max_violation": 0.0,
+  "task5_analytical_bound": 0.9999399372885838
+}
