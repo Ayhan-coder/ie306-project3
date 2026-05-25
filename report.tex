@@ -1,0 +1,50 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{parskip}
+\usepackage{setspace}
+
+\begin{document}
+
+\begin{center}
+    \Large \textbf{MEMORANDUM}
+\end{center}
+\vspace{0.2cm}
+
+\noindent\rule{\textwidth}{1pt}
+
+\noindent \textbf{TO:} \hspace{1.5cm} Festival Operations Manager, Bosphorus Drone Light Festival \\
+\textbf{FROM:} \hspace{0.8cm} Analytics Team --- IE 306 Assignment 3 \\
+\textbf{DATE:} \hspace{0.9cm} May 2026 \\
+\textbf{SUBJECT:} \hspace{0.3cm} Recommendation: Purchase of One Additional Swap Station (Policy B)
+
+\noindent\rule{\textwidth}{0.5pt}
+\vspace{0.5cm}
+
+\textbf{Executive Summary} \\
+Based on a rigorous discrete-event simulation output analysis of the depot system, we recommend purchasing one additional battery-swap station (Policy B: 6 stations). The investment produces a statistically significant and practically meaningful reduction in per-drone swap-queue waiting time.
+
+\vspace{0.3cm}
+\textbf{Analysis Method} \\
+We modelled a closed loop of 200 drones cycling between the flight pool and the depot (swap queue $\rightarrow$ swap stations $\rightarrow$ single test rig $\rightarrow$ re-launch). The system was classified as steady-state because the fleet operates continuously with no planned stop time. A warmup period of 10,000 s ($\approx$ 2.8 h) was deleted from each replication, determined conservatively from Welch's graphical method ($\sim$8,820 s) and MSER ($\sim$3,329 s). Steady-state confidence intervals were constructed via (a) replications-with-deletion (R = 40, SIM\_DUR = 12 h each) and (b) batch means on a single 30 h long run.
+
+\vspace{0.3cm}
+\textbf{Key Results} \\
+Under Policy A (5 stations) the mean per-drone swap-queue wait is estimated at 14.5~s (95\% CI: [13.97, 15.09] s, half-width 3.9\% of point estimate $\leq$ 5\% target). A Common Random Numbers (CRN) paired comparison across R = 40 replications yields:
+\begin{itemize}
+    \item Point estimate of A $-$ B difference: 10.41~s
+    \item 95\% confidence interval: [9.96, 10.85] s
+    \item CRN Variance-Reduction Factor (VRF): 1.75
+\end{itemize}
+The entire CI lies strictly above zero, confirming that Policy B reduces waiting time by roughly 10--11 s per depot visit at the 5\% significance level.
+
+\vspace{0.3cm}
+\textbf{Verification} \\
+Two V\&V checks were passed: (1) the fleet conservation invariant FLEET\_SIZE = in\_air + in\_depot held with zero violation throughout the simulation; (2) Little's Law on the depot subsystem produced a predicted-to-observed ratio of 0.9999, confirming model integrity.
+
+\vspace{0.3cm}
+\textbf{Recommendation} \\
+Add one swap station (Policy B). The improvement is statistically significant, the model is verified, and the VRF of 1.75 demonstrates that the CRN comparison is reliable. The cost of one additional rack should be weighed against the continuous improvement in drone turnaround during every rehearsal block.
+
+\end{document}
